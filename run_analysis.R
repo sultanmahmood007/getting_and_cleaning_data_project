@@ -65,16 +65,17 @@ FN <- FeaturesNames$V2[grep("mean\\(\\)|std\\(\\)", FeaturesNames$V2)]
 selectedNames <- c(as.character(FN),"subject","activity")
 
 
-Data2 <- subset(Data, select=selectedNames)
+Data <- subset(Data, select=selectedNames)
 
 
 ##3.Uses descriptive activity names to name the activities in the data set##################################################################
 
-activitylabels <- read.table(file.path (filelocation, "activity_labels.txt"))
 
-Activity [, 1] <- activitylabels [Activity[, 1], 2]
+activitylabels <- read.table(file.path(filelocation,"activity_labels.txt"),header=FALSE)
 
-head(Data2$activity, 30)
+Activity[,1] <- activitylabels [Activity[, 1 ] , 2 ] 
+
+
 
 ## 4. Appropratly labels the data set with descriptive variable names############################################################################ 
 
